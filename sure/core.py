@@ -28,7 +28,7 @@ try:
     from mock import _CallList
 except ImportError:
     from mock.mock import _CallList
-    
+
 import inspect
 from six import (
     text_type, integer_types, string_types, binary_type,
@@ -254,7 +254,7 @@ class DeepComparison(object):
             if X == Y:
                 return True
             c = self.get_context()
-            m = "X%s is %%r whereas Y%s is %%r"
+            m = "X%s (actual) is %%r whereas Y%s is %%r (expected)"
             msg = m % (red(c.current_X_keys), green(c.current_Y_keys)) % (X, Y)
             return DeepExplanation(msg)
 
