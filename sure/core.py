@@ -254,13 +254,13 @@ class DeepComparison(object):
             if X == Y:
                 return True
             c = self.get_context()
-            m = "X%s (actual) is %%r whereas Y%s is %%r (expected)"
+            m = "X%s (actual) is %%r whereas Y%s (expected) is %%r"
             msg = m % (red(c.current_X_keys), green(c.current_Y_keys)) % (X, Y)
             return DeepExplanation(msg)
 
         elif type(X) is not type(Y):  # different types
             xname, yname = map(lambda _: type(_).__name__, (X, Y))
-            msg = 'X%s is a %%s and Y%s is a %%s instead' % (
+            msg = 'X%s (actual) is a %%s and Y%s (expected) is a %%s instead' % (
                 red(c.current_X_keys),
                 green(c.current_Y_keys),
             ) % (xname, yname)
